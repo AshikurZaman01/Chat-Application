@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 3000;
 const dotenv = require('dotenv');
-
 dotenv.config();
 
 //database connection
@@ -17,6 +16,11 @@ const connecDB = async () => {
         process.exit(1);
     }
 }
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 
 
 app.listen(port, () => {
